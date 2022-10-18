@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/productListFragment">
+
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.truely.truelymart.ui.product.fragment.ProductListFragment"
+        android:label="product_list_fragment"
+        tools:layout="@layout/product_list_fragment" />
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.truely.truelymart.ui.cart.fragment.CartFragment"
+        android:label="cart_fragment"
+        tools:layout="@layout/cart_fragment" />
+    <fragment
+        android:id="@+id/testimonialsFragment"
+        android:name="com.truely.truelymart.ui.testimonal.fragment.TestimonialsFragment"
+        android:label="testimonals_fragment"
+        tools:layout="@layout/testimonals_fragment" />
+</navigation>

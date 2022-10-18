@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp">
+
+        <View
+            android:id="@+id/img_product_view"
+            android:layout_width="130dp"
+            android:layout_height="170dp"
+            android:layout_margin="10dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view_product_title"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_product_view"
+            app:layout_constraintTop_toTopOf="@id/img_product_view"
+            tools:text="Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops" />
+
+        <View
+            android:id="@+id/view_product_description"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_product_view"
+            app:layout_constraintTop_toBottomOf="@id/view_product_title" />
+
+        <View
+            android:id="@+id/txv_product_rating"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/grey"
+            app:layout_constraintStart_toEndOf="@id/img_product_view"
+            app:layout_constraintTop_toBottomOf="@id/view_product_description" />
+
+        <View
+            android:id="@+id/view_product_price"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@id/txv_product_rating"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txv_product_rating" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@id/img_product_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_product_view"
+            app:layout_constraintTop_toBottomOf="@id/txv_product_rating" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp">
+
+        <View
+            android:id="@+id/img_product_view1"
+            android:layout_width="130dp"
+            android:layout_height="170dp"
+            android:layout_margin="10dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view_product_title1"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_product_view1"
+            app:layout_constraintTop_toTopOf="@id/img_product_view1"
+            tools:text="Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops" />
+
+        <View
+            android:id="@+id/view_product_description1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_product_view1"
+            app:layout_constraintTop_toBottomOf="@id/view_product_title1" />
+
+        <View
+            android:id="@+id/txv_product_rating1"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/grey"
+            app:layout_constraintStart_toEndOf="@id/img_product_view1"
+            app:layout_constraintTop_toBottomOf="@id/view_product_description1" />
+
+        <View
+            android:id="@+id/view_product_price1"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@id/txv_product_rating1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txv_product_rating1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@id/img_product_view1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_product_view1"
+            app:layout_constraintTop_toBottomOf="@id/txv_product_rating1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp">
+
+        <View
+            android:id="@+id/img_product_view2"
+            android:layout_width="130dp"
+            android:layout_height="170dp"
+            android:layout_margin="10dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view_product_title2"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_product_view2"
+            app:layout_constraintTop_toTopOf="@id/img_product_view2"
+            tools:text="Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops" />
+
+        <View
+            android:id="@+id/view_product_description2"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_product_view2"
+            app:layout_constraintTop_toBottomOf="@id/view_product_title2" />
+
+        <View
+            android:id="@+id/txv_product_rating2"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/grey"
+            app:layout_constraintStart_toEndOf="@id/img_product_view2"
+            app:layout_constraintTop_toBottomOf="@id/view_product_description2" />
+
+        <View
+            android:id="@+id/view_product_price2"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@id/txv_product_rating2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txv_product_rating2" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@id/img_product_view2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_product_view2"
+            app:layout_constraintTop_toBottomOf="@id/txv_product_rating2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp">
+
+        <View
+            android:id="@+id/img_product_view3"
+            android:layout_width="130dp"
+            android:layout_height="170dp"
+            android:layout_margin="10dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view_product_title3"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_product_view3"
+            app:layout_constraintTop_toTopOf="@id/img_product_view3"
+            tools:text="Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops" />
+
+        <View
+            android:id="@+id/view_product_description3"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_product_view3"
+            app:layout_constraintTop_toBottomOf="@id/view_product_title3" />
+
+        <View
+            android:id="@+id/txv_product_rating3"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/grey"
+            app:layout_constraintStart_toEndOf="@id/img_product_view3"
+            app:layout_constraintTop_toBottomOf="@id/view_product_description3" />
+
+        <View
+            android:id="@+id/view_product_price3"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@id/txv_product_rating3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txv_product_rating3" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@id/img_product_view3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_product_view3"
+            app:layout_constraintTop_toBottomOf="@id/txv_product_rating3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
