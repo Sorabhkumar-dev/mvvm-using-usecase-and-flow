@@ -1,18 +1,19 @@
 package com.truely.truelymart.ui.product.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import com.truely.truelymart.data.retrofit.Result
 import com.truely.truelymart.databinding.ProductListFragmentBinding
+import com.truely.truelymart.ui.adapter.OnProductClickListener
 import com.truely.truelymart.ui.adapter.ProductAdapter
 import com.truely.truelymart.ui.product.viewmodel.ProductListViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,9 +24,11 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class ProductListFragment : Fragment() {
     private lateinit var  binding:ProductListFragmentBinding
-    private val viewModel :ProductListViewModel by  viewModels()
+    private val viewModel: ProductListViewModel by viewModels()
+    private lateinit var navController: NavController
+
     @Inject
-    lateinit var productAdapter:ProductAdapter
+    lateinit var productAdapter: ProductAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,6 +45,15 @@ class ProductListFragment : Fragment() {
 
     private fun initialization(inflater: LayoutInflater) {
         binding = ProductListFragmentBinding.inflate(inflater)
+        navController = findNavController()
+        productAdapter.onProductClickListener = object : OnProductClickListener {
+            override fun onProductClicked(productId: String) {
+                navController.navigate(
+                    ProductListFragmentDirections
+                        .actionProductListFragmentToProductDetailFragment(productId)
+                )
+            }
+        }
         binding.rvProducts.adapter = productAdapter
     }
 

@@ -5,5 +5,7 @@
     <string name="cart">Cart</string>
     <string name="testimonials">Testimonials</string>
     <string name="rating">%.2f (%d)</string>
+    <string name="price">₹%.2f</string>
+    <string name="count">(%d)</string>
     <string name="retry">Retry</string>
 </resources>
