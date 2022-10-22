@@ -13,7 +13,8 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.truely.truelymart.data.retrofit.Result
 import com.truely.truelymart.databinding.TestimonalsFragmentBinding
-import com.truely.truelymart.ui.adapter.UserAdapter
+import com.truely.truelymart.ui.adapter.TestimonialAdapter
+import com.truely.truelymart.ui.interfaces.OnItemClickedListener
 import com.truely.truelymart.ui.testimonal.viewmodel.TestimonialsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -25,7 +26,7 @@ class TestimonialsFragment : Fragment() {
     private lateinit var binding:TestimonalsFragmentBinding
     private val viewModel :TestimonialsViewModel by viewModels()
     @Inject
-    lateinit var userAdapter: UserAdapter
+    lateinit var testimonialAdapter: TestimonialAdapter
 
     private lateinit var navController: NavController
     override fun onCreateView(
@@ -43,12 +44,18 @@ class TestimonialsFragment : Fragment() {
             binding.errorLayout.root.visibility = View.GONE
             viewModel.getUsers()
         }
+        testimonialAdapter.onItemClickedListener  = object :OnItemClickedListener{
+            override fun onItemClicked(id: String) {
+
+            }
+
+        }
     }
 
     private fun initialization(inflater: LayoutInflater) {
         binding = TestimonalsFragmentBinding.inflate(inflater)
         navController = findNavController()
-        binding.rvUsers.adapter = userAdapter
+        binding.rvUsers.adapter = testimonialAdapter
     }
 
     private fun setupObserver() {
@@ -69,7 +76,7 @@ class TestimonialsFragment : Fragment() {
                         is Result.Success -> {
                             binding.simmerLayout.stopShimmer()
                             binding.simmerLayout.visibility = View.GONE
-                            userAdapter.updateUsers(it.body)
+                            testimonialAdapter.updateUsers(it.body)
                         }
                     }
                 }
