@@ -13,8 +13,8 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.truely.truelymart.data.retrofit.Result
 import com.truely.truelymart.databinding.ProductListFragmentBinding
-import com.truely.truelymart.ui.adapter.OnProductClickListener
 import com.truely.truelymart.ui.adapter.ProductAdapter
+import com.truely.truelymart.ui.interfaces.OnItemClickedListener
 import com.truely.truelymart.ui.product.viewmodel.ProductListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -46,11 +46,11 @@ class ProductListFragment : Fragment() {
     private fun initialization(inflater: LayoutInflater) {
         binding = ProductListFragmentBinding.inflate(inflater)
         navController = findNavController()
-        productAdapter.onProductClickListener = object : OnProductClickListener {
-            override fun onProductClicked(productId: String) {
+        productAdapter.onItemClickedListener = object : OnItemClickedListener {
+            override fun onItemClicked(id: String){
                 navController.navigate(
                     ProductListFragmentDirections
-                        .actionProductListFragmentToProductDetailFragment(productId)
+                        .actionProductListFragmentToProductDetailFragment(id)
                 )
             }
         }

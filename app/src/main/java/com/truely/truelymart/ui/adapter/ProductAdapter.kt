@@ -7,11 +7,12 @@ import com.bumptech.glide.Glide
 import com.truely.truelymart.R
 import com.truely.truelymart.data.model.Product
 import com.truely.truelymart.databinding.ProductsLayoutBinding
+import com.truely.truelymart.ui.interfaces.OnItemClickedListener
 import javax.inject.Inject
 
 class ProductAdapter @Inject constructor():RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
     private val products:MutableList<Product> = mutableListOf()
-    var onProductClickListener:OnProductClickListener? = null
+    var onItemClickedListener:OnItemClickedListener? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ProductViewHolder(ProductsLayoutBinding.inflate(LayoutInflater.from(parent.context),parent,false))
 
@@ -35,7 +36,7 @@ class ProductAdapter @Inject constructor():RecyclerView.Adapter<ProductAdapter.P
             )
         }
         holder.binding.root.setOnClickListener {
-            onProductClickListener?.onProductClicked(products[position].id.toString())
+            onItemClickedListener?.onItemClicked(products[position].id.toString())
         }
     }
 
@@ -51,8 +52,4 @@ class ProductAdapter @Inject constructor():RecyclerView.Adapter<ProductAdapter.P
 
     inner class ProductViewHolder(val binding: ProductsLayoutBinding) :
         RecyclerView.ViewHolder(binding.root)
-}
-
-interface OnProductClickListener {
-    fun onProductClicked(productId: String)
 }
