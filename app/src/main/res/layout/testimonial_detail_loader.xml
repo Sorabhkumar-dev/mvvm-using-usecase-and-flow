@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+        <View
+            android:id="@+id/view_user_short_name"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/circle_shape_background"
+            android:backgroundTint="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="SK" />
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/badge_background"
+            android:backgroundTint="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/view_user_short_name"
+            tools:text="Powered by Truly" />
+
+        <View
+            android:id="@+id/view_user_name"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/grey"
+            app:layout_constraintStart_toStartOf="@id/view_user_short_name"
+            app:layout_constraintTop_toBottomOf="@id/view_user_short_name"/>
+
+        <View
+            android:id="@+id/txv_user_designation"
+            android:layout_width="130dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/grey"
+            app:layout_constraintStart_toStartOf="@id/view_user_name"
+            app:layout_constraintTop_toBottomOf="@id/view_user_name"/>
+
+        <View
+            android:id="@+id/view_user_email"
+            android:layout_width="160dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/grey"
+            app:layout_constraintStart_toStartOf="@id/txv_user_designation"
+            app:layout_constraintTop_toBottomOf="@id/txv_user_designation"/>
+
+        <View
+            android:layout_width="200dp"
+            android:layout_height="20dp"
+            android:layout_marginVertical="8dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/view_user_email"
+            app:layout_constraintTop_toBottomOf="@id/view_user_email"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,62 +9,48 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.NavController
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.truely.truelymart.R
+import com.truely.truelymart.data.model.User
 import com.truely.truelymart.data.retrofit.Result
-import com.truely.truelymart.databinding.TestimonalsFragmentBinding
-import com.truely.truelymart.ui.adapter.TestimonialAdapter
-import com.truely.truelymart.ui.interfaces.OnItemClickedListener
-import com.truely.truelymart.ui.testimonal.viewmodel.TestimonialsViewModel
+import com.truely.truelymart.databinding.TestimonialDetailFragmentBinding
+import com.truely.truelymart.ui.testimonal.viewmodel.TestimonialDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class TestimonialsFragment : Fragment() {
-    private lateinit var binding:TestimonalsFragmentBinding
-    private val viewModel :TestimonialsViewModel by viewModels()
-    @Inject
-    lateinit var testimonialAdapter: TestimonialAdapter
-
-    private lateinit var navController: NavController
+class TestimonialDetailFragment : Fragment() {
+    private lateinit var binding: TestimonialDetailFragmentBinding
+    private val viewModel: TestimonialDetailViewModel by viewModels()
+    private val args:TestimonialDetailFragmentArgs by navArgs()
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        initialization(inflater)
+        initializer()
         setupObserver()
-        setOnClickListener()
+        setonClickListener()
         return binding.root
     }
 
-    private fun setOnClickListener() {
+    private fun setonClickListener() {
         binding.errorLayout.btnRetry.setOnClickListener {
             binding.errorLayout.root.visibility = View.GONE
-            viewModel.getUsers()
-        }
-        testimonialAdapter.onItemClickedListener  = object :OnItemClickedListener{
-            override fun onItemClicked(id: String) {
-                navController.navigate(
-                    TestimonialsFragmentDirections
-                        .actionTestimonialsFragmentToTestimonialDetailFragment(id)
-                )
-            }
-
+            viewModel.getTestimonialDetail(args.testimonialId)
         }
     }
 
-    private fun initialization(inflater: LayoutInflater) {
-        binding = TestimonalsFragmentBinding.inflate(inflater)
-        navController = findNavController()
-        binding.rvUsers.adapter = testimonialAdapter
+    private fun initializer() {
+        binding = TestimonialDetailFragmentBinding.inflate(layoutInflater)
+        viewModel.getTestimonialDetail(args.testimonialId)
     }
 
     private fun setupObserver() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                viewModel.usersFlow.collect {
+                viewModel.testimonialFlow.collect {
                     when (it) {
                         is Result.Loading -> {
                             binding.simmerLayout.startShimmer()
@@ -79,11 +65,28 @@ class TestimonialsFragment : Fragment() {
                         is Result.Success -> {
                             binding.simmerLayout.stopShimmer()
                             binding.simmerLayout.visibility = View.GONE
-                            testimonialAdapter.updateUsers(it.body)
+                            setupData(it.body)
                         }
                     }
                 }
             }
         }
+    }
+
+    private fun setupData(user: User?) {
+        user?.let {
+            binding.txvUserShortName.text = "${user.name.firstname[0]} ${user.name.lastname[0]}"
+            binding.txvUserName.text = "${user.name.firstname} ${user.name.lastname}"
+            binding.txvUserEmail.text = user.email
+            binding.txvUserId.text = user.username
+            binding.txvUserAddress.text = getString(
+                R.string.user_address,
+                user.address.number,
+                user.address.street,
+                user.address.city,
+                user.address.zipcode
+            )
+        }
+
     }
 }

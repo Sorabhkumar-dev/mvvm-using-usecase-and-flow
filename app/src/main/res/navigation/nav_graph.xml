@@ -23,7 +23,11 @@
         android:id="@+id/testimonialsFragment"
         android:name="com.truely.truelymart.ui.testimonal.fragment.TestimonialsFragment"
         android:label="testimonals_fragment"
-        tools:layout="@layout/testimonals_fragment" />
+        tools:layout="@layout/testimonals_fragment" >
+        <action
+            android:id="@+id/action_testimonialsFragment_to_testimonialDetailFragment"
+            app:destination="@id/testimonialDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/productDetailFragment"
         android:name="com.truely.truelymart.ui.product.fragment.ProductDetailFragment"
@@ -32,5 +36,12 @@
         <argument
             android:name="productId"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/testimonialDetailFragment"
+        android:name="com.truely.truelymart.ui.testimonal.fragment.TestimonialDetailFragment"
+        android:label="testimonial_detail_fragment"
+        tools:layout="@layout/testimonial_detail_fragment" >
+        <argument android:name="testimonialId" />
     </fragment>
 </navigation>

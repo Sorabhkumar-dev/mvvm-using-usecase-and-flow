@@ -44,4 +44,16 @@ class StoreRepositoryImpl @Inject constructor(private val nodeApiInterface: Node
         }
     }
 
+    override suspend fun getTestimonialDetail(testimonialId: String): Result<User> {
+        val response = nodeApiInterface.getTestimonialDetail(testimonialId)
+        return try{
+            return if (response.isSuccessful)
+                Result.Success(response.body(),response.code(),response.message())
+            else
+                Result.Error(response.code(),response.message())
+        }catch (e:Exception){
+            Result.Error(response.code(),e.message)
+        }
+    }
+
 }

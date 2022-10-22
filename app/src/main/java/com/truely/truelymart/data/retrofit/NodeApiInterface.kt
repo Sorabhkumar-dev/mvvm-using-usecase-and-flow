@@ -16,4 +16,7 @@ interface NodeApiInterface {
 
     @GET("users")
     suspend fun getUsers():Response<List<User>>
+
+    @GET("users/{testimonialId}")
+    suspend fun getTestimonialDetail(@Path("testimonialId")testimonialId:String):Response<User>
 }

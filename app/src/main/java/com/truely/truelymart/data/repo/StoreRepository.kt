@@ -11,4 +11,6 @@ interface StoreRepository {
     suspend fun getProductInfo(productId:String): Result<ProductInfo>
 
     suspend fun getUsers(): Result<List<User>>
+
+    suspend fun getTestimonialDetail(testimonialId:String):Result<User>
 }
