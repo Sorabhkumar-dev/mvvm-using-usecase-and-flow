@@ -11,12 +11,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
-import com.truely.truelymart.R
 import com.truely.truelymart.data.retrofit.Result
 import com.truely.truelymart.databinding.ProductListFragmentBinding
 import com.truely.truelymart.ui.adapter.ProductAdapter
 import com.truely.truelymart.ui.interfaces.OnItemClickedListener
+import com.truely.truelymart.ui.product.activity.RootActivity
 import com.truely.truelymart.ui.product.viewmodel.ProductListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -38,18 +37,17 @@ class ProductListFragment : Fragment() {
     ): View {
         initialization(inflater)
         setupObserver()
-        binding.errorLayout.btnRetry.setOnClickListener {
-            binding.errorLayout.root.visibility = View.GONE
-            viewModel.getProducts()
-        }
+        setOnClickListener()
         return binding.root
     }
 
     private fun initialization(inflater: LayoutInflater) {
         binding = ProductListFragmentBinding.inflate(inflater)
         navController = findNavController()
+        (activity as RootActivity).isShowBottomNavigation(true)
         productAdapter.onItemClickedListener = object : OnItemClickedListener {
             override fun onItemClicked(id: String){
+                (activity as RootActivity).isShowBottomNavigation()
                 navController.navigate(
                     ProductListFragmentDirections
                         .actionProductListFragmentToProductDetailFragment(id)
@@ -82,6 +80,13 @@ class ProductListFragment : Fragment() {
                     }
                 }
             }
+        }
+    }
+
+    private fun setOnClickListener() {
+        binding.errorLayout.btnRetry.setOnClickListener {
+            binding.errorLayout.root.visibility = View.GONE
+            viewModel.getProducts()
         }
     }
 

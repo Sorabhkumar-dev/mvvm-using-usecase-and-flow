@@ -1,22 +1,22 @@
 package com.truely.truelymart.ui.cart.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.truely.truelymart.R
 import com.truely.truelymart.data.retrofit.Result
 import com.truely.truelymart.databinding.CartFragmentBinding
 import com.truely.truelymart.ui.adapter.CartAdapter
 import com.truely.truelymart.ui.cart.viewmodel.CartViewModel
 import com.truely.truelymart.ui.interfaces.OnItemClickedListener
+import com.truely.truelymart.ui.product.activity.RootActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -43,6 +43,7 @@ class CartFragment : Fragment() {
     private fun initializer(inflater: LayoutInflater) {
         binding = CartFragmentBinding.inflate(inflater)
         navController = findNavController()
+        (activity as RootActivity).isShowBottomNavigation(true)
         binding.rvCart.adapter = cartAdapter
     }
 
@@ -53,6 +54,7 @@ class CartFragment : Fragment() {
         }
         cartAdapter.onItemClickedListener = object :OnItemClickedListener{
             override fun onItemClicked(id: String) {
+                (activity as RootActivity).isShowBottomNavigation()
                 navController.navigate(CartFragmentDirections.actionCartFragmentToProductDetailFragment(id))
             }
 

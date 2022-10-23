@@ -15,6 +15,7 @@ import com.truely.truelymart.data.retrofit.Result
 import com.truely.truelymart.databinding.TestimonalsFragmentBinding
 import com.truely.truelymart.ui.adapter.TestimonialAdapter
 import com.truely.truelymart.ui.interfaces.OnItemClickedListener
+import com.truely.truelymart.ui.product.activity.RootActivity
 import com.truely.truelymart.ui.testimonal.viewmodel.TestimonialsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -39,25 +40,11 @@ class TestimonialsFragment : Fragment() {
         return binding.root
     }
 
-    private fun setOnClickListener() {
-        binding.errorLayout.btnRetry.setOnClickListener {
-            binding.errorLayout.root.visibility = View.GONE
-            viewModel.getUsers()
-        }
-        testimonialAdapter.onItemClickedListener  = object :OnItemClickedListener{
-            override fun onItemClicked(id: String) {
-                navController.navigate(
-                    TestimonialsFragmentDirections
-                        .actionTestimonialsFragmentToTestimonialDetailFragment(id)
-                )
-            }
-
-        }
-    }
 
     private fun initialization(inflater: LayoutInflater) {
         binding = TestimonalsFragmentBinding.inflate(inflater)
         navController = findNavController()
+        (activity as RootActivity).isShowBottomNavigation(true)
         binding.rvUsers.adapter = testimonialAdapter
     }
 
@@ -84,6 +71,22 @@ class TestimonialsFragment : Fragment() {
                     }
                 }
             }
+        }
+    }
+    private fun setOnClickListener() {
+        binding.errorLayout.btnRetry.setOnClickListener {
+            binding.errorLayout.root.visibility = View.GONE
+            viewModel.getUsers()
+        }
+        testimonialAdapter.onItemClickedListener  = object :OnItemClickedListener{
+            override fun onItemClicked(id: String) {
+                (activity as RootActivity).isShowBottomNavigation()
+                navController.navigate(
+                    TestimonialsFragmentDirections
+                        .actionTestimonialsFragmentToTestimonialDetailFragment(id)
+                )
+            }
+
         }
     }
 }
