@@ -17,4 +17,5 @@
     <string name="user_phone"><h6><b><i>Phone: </i> </b></h6><p>%s</p></string>
     <string name="user_email"><h6><b><i>Email : </i> </b></h6><p>%s</p></string>
     <string name="user_address"><h6><b><i>Address : </i> </b></h6><p>%d, </p><p>%s, </p><p>%s, </p><p>%s</p></string>
+    <string name="sorabh_kumar">Developed by Sorabh Kumar</string>
 </resources>
