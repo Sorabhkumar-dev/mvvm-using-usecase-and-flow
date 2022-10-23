@@ -29,7 +29,10 @@ class SplashFragment : Fragment() {
         binding.imgLog.animation = animation
         lifecycleScope.launch{
             delay(4000)
-            navController.navigate(SplashFragmentDirections.actionSplashFragmentToProductListFragment())
+            navController.navigate(
+                SplashFragmentDirections
+                    .actionSplashFragmentToProductListFragment()
+            )
         }
         return binding.root
     }

@@ -11,6 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.truely.truelymart.R
 import com.truely.truelymart.data.retrofit.Result
 import com.truely.truelymart.databinding.ProductListFragmentBinding
 import com.truely.truelymart.ui.adapter.ProductAdapter
