@@ -1,5 +1,6 @@
 package com.truely.truelymart.data.retrofit
 
+import com.truely.truelymart.data.model.Cart
 import com.truely.truelymart.data.model.Product
 import com.truely.truelymart.data.model.ProductInfo
 import com.truely.truelymart.data.model.User
@@ -19,4 +20,7 @@ interface NodeApiInterface {
 
     @GET("users/{testimonialId}")
     suspend fun getTestimonialDetail(@Path("testimonialId")testimonialId:String):Response<User>
+
+    @GET("carts")
+    suspend fun getCartItems():Response<List<Cart>>
 }

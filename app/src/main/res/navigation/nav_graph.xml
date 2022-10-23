@@ -12,13 +12,25 @@
         tools:layout="@layout/product_list_fragment" >
         <action
             android:id="@+id/action_productListFragment_to_productDetailFragment"
-            app:destination="@id/productDetailFragment" />
+            app:destination="@id/productDetailFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_from_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_from_right" />
     </fragment>
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.truely.truelymart.ui.cart.fragment.CartFragment"
         android:label="cart_fragment"
-        tools:layout="@layout/cart_fragment" />
+        tools:layout="@layout/cart_fragment" >
+        <action
+            android:id="@+id/action_cartFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_from_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_from_right" />
+    </fragment>
     <fragment
         android:id="@+id/testimonialsFragment"
         android:name="com.truely.truelymart.ui.testimonal.fragment.TestimonialsFragment"
@@ -26,7 +38,11 @@
         tools:layout="@layout/testimonals_fragment" >
         <action
             android:id="@+id/action_testimonialsFragment_to_testimonialDetailFragment"
-            app:destination="@id/testimonialDetailFragment" />
+            app:destination="@id/testimonialDetailFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_from_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_from_right" />
     </fragment>
     <fragment
         android:id="@+id/productDetailFragment"

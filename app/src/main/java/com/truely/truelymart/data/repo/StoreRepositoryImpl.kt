@@ -1,5 +1,6 @@
 package com.truely.truelymart.data.repo
 
+import com.truely.truelymart.data.model.Cart
 import com.truely.truelymart.data.model.Product
 import com.truely.truelymart.data.model.ProductInfo
 import com.truely.truelymart.data.model.User
@@ -48,6 +49,18 @@ class StoreRepositoryImpl @Inject constructor(private val nodeApiInterface: Node
         val response = nodeApiInterface.getTestimonialDetail(testimonialId)
         return try{
             return if (response.isSuccessful)
+                Result.Success(response.body(),response.code(),response.message())
+            else
+                Result.Error(response.code(),response.message())
+        }catch (e:Exception){
+            Result.Error(response.code(),e.message)
+        }
+    }
+
+    override suspend fun getCartItems(): Result<List<Cart>> {
+        val response = nodeApiInterface.getCartItems()
+        return try{
+            if (response.isSuccessful)
                 Result.Success(response.body(),response.code(),response.message())
             else
                 Result.Error(response.code(),response.message())

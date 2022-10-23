@@ -1,5 +1,6 @@
 package com.truely.truelymart.data.repo
 
+import com.truely.truelymart.data.model.Cart
 import com.truely.truelymart.data.model.Product
 import com.truely.truelymart.data.model.ProductInfo
 import com.truely.truelymart.data.model.User
@@ -13,4 +14,6 @@ interface StoreRepository {
     suspend fun getUsers(): Result<List<User>>
 
     suspend fun getTestimonialDetail(testimonialId:String):Result<User>
+
+    suspend fun getCartItems():Result<List<Cart>>
 }

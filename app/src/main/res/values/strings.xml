@@ -8,6 +8,10 @@
     <string name="price">₹%.2f</string>
     <string name="count">(%d)</string>
     <string name="retry">Retry</string>
+    <string name="user_id"><b>UserId:- </b>%d</string>
+    <string name="date"><b>Date:- </b>%s</string>
+    <string name="product_id"><b>ProductId:- </b>%d</string>
+    <string name="quantity"><b>Quantity:- </b>%d</string>
     <string name="powered_by_truly">Powered by Truly</string>
     <string name="user_name"><h6><b><i>Name: </i> </b></h6><p>%s</p><p> %s</p></string>
     <string name="user_phone"><h6><b><i>Phone: </i> </b></h6><p>%s</p></string>
